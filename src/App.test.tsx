@@ -27,6 +27,12 @@ describe("Field Rendering", () => {
     expect(screen.getByRole("combobox")).toBeInTheDocument();
   });
 
+  test("Show all Gender Options", () => {
+    render(<App/>)
+    const listOfGenders = screen.getAllByRole('option')
+    expect(listOfGenders).toHaveLength(3);
+  })
+
   test("Checkbox Field", () => {
     render(<App />);
     expect(screen.getByRole("checkbox")).toBeInTheDocument();
@@ -55,7 +61,7 @@ describe("Validation", () => {
     });
     fireEvent.click(screen.getByText(/submit/i));
     expect(
-      await screen.findByText(/Please enter a valid email address/i)
+      await screen.getByText(/Please enter a valid email/i, {exact: false})
     ).toBeInTheDocument();
   });
 
@@ -137,6 +143,32 @@ describe("Form Submission", () => {
       { timeout: 2000 }
     );
     expect(getThankyouText).toBeInTheDocument();
+  });
+
+  test("Shows 'Submitting...' text after form submit", async () => {
+    render(<App />);
+    fireEvent.change(screen.getByLabelText(/First Name/i), { target: { value: 'John' } });
+    fireEvent.change(screen.getByLabelText(/Last Name/i), { target: { value: 'Deo' } });
+    fireEvent.change(screen.getByLabelText(/Phone/i), { target: { value: '8250948396' } });
+    fireEvent.change(screen.getByLabelText(/Email/i), { target: { value: 'dev.rohit2001@gmail.com' } });
+    fireEvent.click(screen.getByLabelText(/terms/i));
+    fireEvent.change(screen.getByLabelText(/gender/i), { target: { value: 'Male' } });
+    fireEvent.click(screen.getByText(/submit/i));
+    expect(screen.getByText(/Submitting.../i)).toBeInTheDocument();
+  });
+
+  test("Hide Submit button after Submission", async () => {
+    render(<App />);
+    fireEvent.change(screen.getByLabelText(/First Name/i), { target: { value: 'John' } });
+    fireEvent.change(screen.getByLabelText(/Last Name/i), { target: { value: 'Deo' } });
+    fireEvent.change(screen.getByLabelText(/Phone/i), { target: { value: '8250948396' } });
+    fireEvent.change(screen.getByLabelText(/Email/i), { target: { value: 'dev.rohit2001@gmail.com' } });
+    fireEvent.click(screen.getByLabelText(/terms/i));
+    fireEvent.change(screen.getByLabelText(/gender/i), { target: { value: 'Male' } });
+    fireEvent.click(screen.getByText(/submit/i));
+
+    await screen.findByText(/Thank you for submitting the form/i, {}, {timeout: 2000});
+    expect(screen.queryByText('submit')).not.toBeInTheDocument();
   });
 });
 
