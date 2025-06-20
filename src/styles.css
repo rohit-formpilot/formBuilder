@@ -1,4 +1,38 @@
 .App {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   font-family: sans-serif;
+}
+
+.thank-you {
+  margin-top: 2rem;
+  padding: 2rem 3rem;
+  background: #f0fdf4;
+  color: #22c55e;
+  border: 1.5px solid #bbf7d0;
+  border-radius: 12px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  box-shadow: 0 2px 12px 0 #22c55e22;
   text-align: center;
+  letter-spacing: 0.5px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.form-status {
+  margin-top: 1.5rem;
+  padding: 1rem 2rem;
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.form-error {
+  background: #fef2f2;
+  color: #ef4444;
+  border-color: #ef4444;
 }

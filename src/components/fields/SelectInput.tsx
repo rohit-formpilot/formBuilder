@@ -1,15 +1,10 @@
 import { SelectInputPropsType } from "../../types/SelectInputPropsType";
 
-export default function SelectInput({ name, label, value, options, error, onChange }: SelectInputPropsType) {
+export default function SelectInput({name, label, value, options, error, onChange }: SelectInputPropsType) {
   return (
-    <main>
+    <main style={{ display: "flex", flexDirection: "row", gap: "5px", margin: "10px 0", width: "100%", }} >
       <label htmlFor={name}>{label}</label>
-      <select
-        id={name}
-        name={name}
-        value={value}
-        onChange={(event) => onChange(event.target.value)}
-      >
+      <select id={name} name={name} value={value} onChange={(event) => onChange(event.target.value)}>
         {/* Initial Select Options make it dynamic later */}
         <option value={""}>{"Select"}</option>
 
@@ -20,7 +15,7 @@ export default function SelectInput({ name, label, value, options, error, onChan
           </option>
         ))}
       </select>
-      {error && <small role="alert">{error}</small>}
+       {error && <small style={{color: "red"}}role="alert">{error}</small>}
     </main>
   );
 }

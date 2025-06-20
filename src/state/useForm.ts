@@ -43,13 +43,18 @@ export function useForm(schema: FormSchema) {
   }
 
   async function submit(
-    onSuccess: (values: Record<string, any>) => void,
+    onSuccess: (values: Record<string, any>) => void | Promise<void>,
     onError: (errors: Record<string, string | null>) => void
   ) {
     const isValid = isFormValid();
     if (isValid) {
-      setStatus("success");
-      onSuccess?.(values);
+      setStatus("submitting");
+      try {
+        await onSuccess?.(values);
+        setStatus("success");
+      } catch (e) {
+        setStatus("error");
+      }
     } else {
       setStatus("error");
       onError?.(errors);
