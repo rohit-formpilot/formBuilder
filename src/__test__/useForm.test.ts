@@ -1,5 +1,5 @@
 import { renderHook, act } from "@testing-library/react";
-import { useForm } from "./useForm";
+import { useForm } from "../state/useForm";
 import { FormSchema, FieldType } from "../types/formTypes";
 
 describe("useForm", () => {

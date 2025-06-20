@@ -1,4 +1,4 @@
-import App from "./App";
+import App from "../App";
 import { render, screen, fireEvent, logRoles } from "@testing-library/react";
 
 describe("Field Rendering", () => {
