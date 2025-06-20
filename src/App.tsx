@@ -2,6 +2,7 @@ import "./styles.css";
 import { useForm } from "./state/useForm";
 import { Form } from "./components/Form/FormUI";
 import { userInfoCollectionformSchema as schema } from "./schemas/formSchema";
+import Counter from "./components/counter/counter";
 
 export default function App() {
   const { values, errors, updateValue, submit, status } = useForm(schema);
@@ -46,6 +47,7 @@ export default function App() {
     <main className="App">
       <h1>User Info Form</h1>
       {renderContent}
+      <Counter/>
     </main>
   );
 }

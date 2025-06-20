@@ -1,5 +1,5 @@
 import App from "./App";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent, logRoles } from "@testing-library/react";
 
 describe("Field Rendering", () => {
   test("First name Field", () => {
@@ -158,7 +158,7 @@ describe("Form Submission", () => {
   });
 
   test("Hide Submit button after Submission", async () => {
-    render(<App />);
+    const view = render(<App />);
     fireEvent.change(screen.getByLabelText(/First Name/i), { target: { value: 'John' } });
     fireEvent.change(screen.getByLabelText(/Last Name/i), { target: { value: 'Deo' } });
     fireEvent.change(screen.getByLabelText(/Phone/i), { target: { value: '8250948396' } });
