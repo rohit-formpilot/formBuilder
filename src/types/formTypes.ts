@@ -6,6 +6,8 @@ export interface FieldSchema {
   type: FieldType;
   options?: string[];
   required?: boolean;
+  pattern?: RegExp;
+  patternMessage?: string;
 }
 
 export interface FormSchema {

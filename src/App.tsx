@@ -10,7 +10,7 @@ export default function App() {
     e.preventDefault();
     submit(
       async (formValues) => {
-        await new Promise((resolve) => setTimeout(resolve, 2000));
+        await new Promise((resolve) => setTimeout(resolve, 1500));
         console.log("Form submitted:", formValues);
       },
       (formErrors) => console.log(formErrors)
