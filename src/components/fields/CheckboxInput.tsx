@@ -1,18 +1,5 @@
-interface CheckboxInputProps {
-  name: string;
-  label: string;
-  checked: boolean;
-  error?: string | null;
-  onChange: (checked: boolean) => void;
-}
-
-export default function CheckboxInput({
-  name,
-  label,
-  checked,
-  error,
-  onChange,
-}: CheckboxInputProps) {
+import { CheckboxInputPropsType } from "../../types/CheckboxInputPropsType";
+export default function CheckboxInput({ name, label, checked, error, onChange } : CheckboxInputPropsType) {
   return (
     <main>
       <label htmlFor={name}>

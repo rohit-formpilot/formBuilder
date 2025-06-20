@@ -1,19 +1,6 @@
-interface SelectInputProps {
-  name: string;
-  label: string;
-  value: string;
-  options: string[];
-  error?: string | null;
-  onChange: (value: string) => void;
-}
-export default function SelectInput({
-  name,
-  label,
-  value,
-  options,
-  error,
-  onChange,
-}: SelectInputProps) {
+import { SelectInputPropsType } from "../../types/SelectInputPropsType";
+
+export default function SelectInput({ name, label, value, options, error, onChange }: SelectInputPropsType) {
   return (
     <main>
       <label htmlFor={name}>{label}</label>

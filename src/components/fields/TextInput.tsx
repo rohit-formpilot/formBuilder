@@ -1,18 +1,7 @@
-interface TextInputProps {
-  name: string;
-  label: string;
-  value: string;
-  error?: string | null;
-  onChange: (value: string) => void;
-}
+import { TextInputPropsType } from "../../types/TextInputPropsType";
 
-export default function TextInput({
-  name,
-  label,
-  value,
-  error,
-  onChange,
-}: TextInputProps) {
+
+export default function TextInput({ name, label, value, error, onChange }: TextInputPropsType) {
   return (
     <main>
       <label htmlFor={name}>{label}</label>

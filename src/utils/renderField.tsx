@@ -1,19 +1,13 @@
 import React from "react";
-import { FieldSchema } from "../types/formTypes";
 
-import CheckboxInput from "../components/fields/CheckboxInput";
+import TextInput from "../components/fields/TextInput";
 import SelectInput from "../components/fields/SelectInput";
 import TextAreaInput from "../components/fields/TextAreaInput";
-import TextInput from "../components/fields/TextInput";
+import CheckboxInput from "../components/fields/CheckboxInput";
+import { RenderFieldPropsType } from "../types/RenderFieldPropsType";
 
-interface RenderFieldProps {
-  field: FieldSchema;
-  values: Record<string, any>;
-  errors: Record<string, string | null>;
-  onChange: (name: string, value: any) => void;
-}
 
-export function renderField({ field, values, errors, onChange,} : RenderFieldProps) : React.ReactElement | null {
+export function renderField({ field, values, errors, onChange,} : RenderFieldPropsType) : React.ReactElement | null {
   const commonProps = {
     name: field.name,
     label: field.label,

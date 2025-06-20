@@ -1,18 +1,5 @@
-interface TextAreaInputProps {
-  name: string;
-  label: string;
-  value: string;
-  error: string | null;
-  onChange: (value: string) => void;
-}
-
-export default function TextAreaInput({
-  name,
-  label,
-  value,
-  error,
-  onChange,
-}: TextAreaInputProps) {
+import { TextAreaInputPropsTypes } from "../../types/TextAreaInputPropsTypes";
+export default function TextAreaInput({ name, label, value, error, onChange }: TextAreaInputPropsTypes) {
   return (
     <div>
       <label htmlFor={name}>{label}</label>

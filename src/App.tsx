@@ -4,17 +4,11 @@ import { Form } from "./components/Form/FormUI";
 import { userInfoCollectionformSchema as schema} from "./schemas/formSchema";
 
 export default function App() {
-  const {
-    values,
-    errors,
-    updateValue,
-    submit,
-  } = useForm(schema);
+  const { values, errors, updateValue, submit } = useForm(schema);
 
   const handleSubmit = (data: React.FormEvent<HTMLFormElement>) => {
     data.preventDefault();
-    submit(
-      (values) => {
+    submit((values) => {
         console.log(values);
       },
       (error) => {
