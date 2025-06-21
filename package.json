@@ -26,8 +26,10 @@
   "devDependencies": {
     "@types/react": "18.2.38",
     "@types/react-dom": "18.2.15",
+    "eslint-plugin-jest-dom": "^5.5.0",
     "msw": "^2.10.2",
-    "typescript": "4.4.4"
+    "typescript": "4.4.4",
+    "util": "^0.12.5"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -35,6 +37,13 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "coverage": "yarn test --coverage"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest",
+      "plugin:jest-dom/recommended"
+    ]
   },
   "browserslist": [
     ">0.2%",

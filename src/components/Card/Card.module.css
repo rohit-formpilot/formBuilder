@@ -1,0 +1,31 @@
+/* Card.module.css */
+.card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    margin: 1rem 0;
+    transition: box-shadow 0.2s;
+}
+
+.cardTitle {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.cardBody {
+    color: #444;
+    margin-bottom: 0.5rem;
+}
+
+.cardFooter {
+    font-size: 0.9rem;
+    color: #888;
+}
+.cardConatiner{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 16px
+}
